@@ -27,6 +27,7 @@ ch7al-mclassyin(){
 	echo "${BOLD}${classement}${NORMAL}"
 }
 
-# 3tini-l3assir(){
-# 
-# }
+_3tini-l3assir(){
+	akhbar=$(echo "${webpage_content}"| grep "link-featured"|sed -e "s/<\/a>//g" -e "s/<a.*>//g" |rev)
+	echo "${BOLD}${akhbar}${NORMAL}"
+}
