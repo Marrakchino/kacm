@@ -13,11 +13,11 @@ imta-la3bin(){
 	echo "${BOLD}${date}${NORMAL}"
 }
 
-# FIX: output format: unreadable.
+# FIX: output format: unreadable. TEMPORARILY FIXED
 m3amen-la3bin(){
 	lfer9a=$(echo "${webpage_content}"|grep "schedule__group__match" -A20|
 	grep "timezone time" -A20 -m1| grep -A5 "/analytics/team/"|
-	grep "title=\".*"|grep -v "$KACM"|sed -e "s/\"//g" -e "s/.*title=//g" -e "s/>//g")
+	grep "title=\".*"|grep -v "$KACM"|sed -e "s/\"//g" -e "s/.*title=//g" -e "s/>//g"| rev)
 	echo "${BOLD}${lfer9a}${NORMAL}"
 }
 
