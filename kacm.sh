@@ -4,8 +4,8 @@ BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 KACM="الكوكب المراكشي"
 
-URL="https://www.elbotola.com/analytics/team/3468/"
-webpage_content=$(curl -sS "${URL}")
+URL="https://elbotola.com/analytics/team/3468/"
+webpage_content=$(curl -LsS "${URL}")
 
 imta-la3bin(){
 	date=$(echo "${webpage_content}"|grep "schedule__group__match" -A2|
@@ -13,11 +13,10 @@ imta-la3bin(){
 	echo "${BOLD}${date}${NORMAL}"
 }
 
-# FIX: output format: unreadable. TEMPORARILY FIXED
 m3amen-la3bin(){
 	lfer9a=$(echo "${webpage_content}"|grep "schedule__group__match" -A20|
 	grep "timezone time" -A20 -m1| grep -A5 "/analytics/team/"|
-	grep "title=\".*"|grep -v "$KACM"|sed -e "s/\"//g" -e "s/.*title=//g" -e "s/>//g"| rev)
+	grep "title=\".*"|grep -v "$KACM"|sed -e "s/\"//g" -e "s/.*title=//g" -e "s/>//g")
 	echo "${BOLD}${lfer9a}${NORMAL}"
 }
 
@@ -28,6 +27,6 @@ ch7al-mclassyin(){
 }
 
 _3tini-l3assir(){
-	akhbar=$(echo "${webpage_content}"| grep "link-featured"|sed -e "s/<\/a>//g" -e "s/<a.*>//g" |rev)
+	akhbar=$(echo "${webpage_content}"| grep "link-featured"|sed -e "s/<\/a>//g" -e "s/<a.*>//g")
 	echo "${BOLD}${akhbar}${NORMAL}"
 }
